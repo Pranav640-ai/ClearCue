@@ -16,20 +16,16 @@ The release build blanks every project-specific Firebase identifier, the debug s
 
 ## Judge testing with Firebase
 
-Use a private checkout and a judge-specific Firebase project to test genuine hybrid inference. Follow [Firebase setup](FIREBASE_SETUP.md), fill `.env` locally, then run `npm run build` and `npm run smoke:cloud`. Leave App Check enforcement enabled. Keep the public release and local development ZIP separate. The official rules permit debug tokens for submissions. A privately configured judge project is the way to keep a reusable token out of the public package and source. [Hackathon rules](https://firebasehybridaihackathon.devpost.com/rules)
+Use the private test ZIP and hosted practice link supplied in the submission's
+nonpublic testing instructions. Extract the ZIP. In Chrome open
+`chrome://extensions`, enable **Developer mode**, choose **Load unpacked** and
+select the folder containing `manifest.json`. Open the practice link, click
+ClearCue in the toolbar and enable ClearCue on that site. The guide walks
+through cloud diagnostics, repair and Undo, and local inference where available.
 
-For a handoff, use a separate test project and register a fresh, named debug token
-under **App Check → Apps → Manage debug tokens** for the test Web app. Before giving
-access, confirm an organizer-approved private provisioning channel and test it with
-a fresh recipient session. Keep the debug token in the recipient's ignored local
-`.env`, use the existing Firebase config plus `VITE_APPCHECK_DEBUG=true` and
-`VITE_APPCHECK_DEBUG_TOKEN`, and run `npm ci`, `npm run build` and
-`npm run smoke:cloud`. Then load the private unpacked build in supported regular
-Chrome and run N1 in the final runbook. The expected evidence is real `IN_CLOUD`
-and `ON_DEVICE`, each reported by the SDK. Keep the production project and the
-public ZIP out of this provisioning arrangement. Revoke the test token after judging
-or immediately if it leaks. The owner must approve and verify recipient access
-before this path can be described as judge-accessible. [Firebase debug provider](https://firebase.google.com/docs/app-check/web/debug-provider)
+The owner builds the judge package in a private checkout using a separate test
+project and a revocable App Check credential. The public clean ZIP remains
+available for the deterministic workflow. [Hackathon rules](https://firebasehybridaihackathon.devpost.com/rules) · [Firebase debug provider](https://firebase.google.com/docs/app-check/web/debug-provider)
 
 The project owner must open **Firebase Console → App Check → Apps → Web app → Manage debug tokens**, register a fresh private token, replace the local `.env` value, and rebuild. Verify the new build with `npm run smoke:cloud`, then remove the previously exposed token from the console. Treat earlier development ZIPs and the affected audit transcript as private. Never use screenshots of the token registration flow in public materials.
 

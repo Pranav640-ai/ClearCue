@@ -41,6 +41,8 @@ flowchart TD
 
 The clean build provides deterministic assistance offline. The configured hybrid build is compiled privately with Firebase and App Check. Visual evidence and contextual reranking are forced on-device. The panel reports the source actually returned by the SDK.
 
+Judges can use the preconfigured test ZIP supplied in the private submission instructions. Extract it, load the folder containing `manifest.json` at `chrome://extensions` using **Load unpacked**, then open the supplied practice guide. Chrome is the only judge-side setup dependency. The [public release ZIP](https://github.com/Pranav640-ai/ClearCue/releases/tag/v0.5.0) offers the deterministic workflows.
+
 | Path | Role |
 | --- | --- |
 | [Inference engine](src/inference/engine.ts) | Firebase AI Logic SDK, runtime generation and response provenance |
