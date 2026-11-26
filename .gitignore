@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-extension/
+dist-test/
+artifacts/
+*.zip
+
+# Local environment and secrets
+# Firebase web config values are public identifiers, but the App Check debug
+# token is a development secret and .env files must never be committed.
+.env
+.env.*
+!.env.example
+
+# Tooling output
+coverage/
+playwright-report/
+test-results/
+.vite/
+*.tsbuildinfo
+
+# Firebase / editor / OS
+.firebase/
+.firebaserc.local
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+
+# Persistent browser profile for the cloud smoke harness (never committed)
+.playwright-smoke-profile/
+
+# Throwaway profiles and builds used by live verification probes
+.chrome-verify-profile/
+.cloud-verify-dist/
+.stage4-live-dist/
+
+.stage5-live-dist/

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Atlas Operations — Dashboard</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 0; padding: 1.5rem; background: #f7f9f8; color: #14201a; }
+      .row { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+      .panel { background: #fff; border: 1px solid #d9e1dc; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+      .icon-button { padding: 0.35rem 0.5rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Operations dashboard</h1>
+
+    <div class="panel">
+      <h2>Filter orders</h2>
+      <form action="/orders">
+        <label for="order-search">Search orders</label>
+        <input id="order-search" type="search" name="q" />
+
+        <!-- Deliberate defect: a select with no label at all. -->
+        <select name="status">
+          <option value="">Any status</option>
+          <option value="open">Open</option>
+          <option value="closed">Closed</option>
+        </select>
+
+        <label><input type="checkbox" name="overdue" /> Only overdue</label>
+        <button type="submit">Apply filters</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2>Saved views</h2>
+      <!-- Deliberate defect: broken aria-labelledby reference. -->
+      <button type="button" aria-labelledby="view-name-missing">Open saved view</button>
+      <button type="button" aria-label="Refresh saved views">
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"></svg>
+      </button>
+      <button class="icon-button" type="button">
+        <svg viewBox="0 0 20 20" width="16" height="16" role="img"><title>Clear filters</title></svg>
+      </button>
+      <!-- Deliberate defect: disabled control with no name. -->
+      <button type="button" disabled></button>
+    </div>
+
+    <div class="panel">
+      <h2>Accounts</h2>
+      <label for="account">Account</label>
+      <input id="account" type="text" readonly value="ACME-123" />
+      <!-- Deliberate defect: label points at a duplicated id. -->
+      <span id="dupe">Primary contact</span>
+      <span id="dupe">Billing contact</span>
+      <button type="button" aria-labelledby="dupe">Open details</button>
+    </div>
+
+    <div class="panel" hidden>
+      <button type="button"></button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interaction recovery lab — ClearCue Playground</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="recovery">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="playground-bar">
+      <span class="playground-tag">Demo site</span>
+      <p>Fictional content. Every defect here is deliberate and used to verify the Stage 5 recovery engine.</p>
+    </div>
+
+    <header class="site-header">
+      <div class="wrap site-header-inner">
+        <p class="wordmark">Northfield <span>Foundation</span></p>
+        <nav aria-label="Playground pages">
+          <ul class="nav-list">
+            <li><a href="./index.html">Overview</a></li>
+            <li><a href="./scholarship.html">Scholarship</a></li>
+            <li><a href="./shopping.html">Shopping</a></li>
+            <li><a href="./account.html">Account</a></li>
+            <li><a href="./stage4.html">Repair lab</a></li>
+            <li><a href="./recovery.html" aria-current="page">Recovery lab</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <p class="eyebrow">Stage 5 verification</p>
+      <h1>Interaction recovery lab</h1>
+      <p class="lede">
+        These workflows reproduce outcomes that are visible but poorly communicated: silent validation, visual confirmations and ambiguous field
+        errors. ClearCue observes the page; it never fills, submits, purchases or deletes anything for you.
+      </p>
+      <div class="notice notice-info">
+        <p>
+          Open the ClearCue side panel from the toolbar icon or <kbd>Alt+Shift+C</kbd>, enable this site, then use a workflow. Automatic
+          announcements appear only when the page does not already expose the update.
+        </p>
+      </div>
+
+      <section class="panel" aria-labelledby="scholarship-heading">
+        <p class="eyebrow">Flagship workflow</p>
+        <h2 id="scholarship-heading">Scholarship registration: 12-step recovery sequence</h2>
+        <ol class="progress recovery-steps" aria-label="The twelve steps this demo reproduces">
+          <li>Enter a registration number.</li>
+          <li>Submit the form.</li>
+          <li>A visual error appears without an announcement.</li>
+          <li>ClearCue detects the new error.</li>
+          <li>ClearCue announces it once through a page live region.</li>
+          <li>Choose Jump to affected field.</li>
+          <li>Correct the number.</li>
+          <li>Submit again.</li>
+          <li>A visual success panel replaces the form.</li>
+          <li>ClearCue communicates the success.</li>
+          <li>The panel keeps a local history.</li>
+          <li>Turn on the accessible comparison to confirm the page's own announcement is not duplicated.</li>
+        </ol>
+
+        <button id="scholarship-help-toggle" type="button" class="button" aria-controls="scholarship-help" aria-expanded="false">
+          <svg aria-hidden="true" aria-label="Help" width="24" height="24" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor"/>
+            <path d="M9 9a3 3 0 1 1 5 2.2c-1.4 1-2 1.3-2 3m0 2h.01" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+        <p id="scholarship-help" hidden>Use the registration number from your invitation email. This demonstration sends no application.</p>
+        <form id="scholarship-form" novalidate>
+          <div id="reg-summary" class="error-summary" hidden>
+            <h3>There is a problem</h3>
+            <ul id="reg-summary-list"></ul>
+          </div>
+
+          <div class="field-row">
+            <label for="reg-number">Registration number</label>
+            <input
+              type="text"
+              id="reg-number"
+              name="regNumber"
+              autocomplete="off"
+              aria-describedby="reg-hint"
+              aria-errormessage="reg-error"
+            />
+            <p id="reg-hint" class="hint">Eight characters, starting with NF-. Find it in your invitation email.</p>
+            <p id="reg-error" class="hint field-error" hidden>Enter the eight-character registration number from your invitation.</p>
+          </div>
+
+          <div class="field-row">
+            <label for="applicant-email">Email address</label>
+            <input type="email" id="applicant-email" name="email" autocomplete="email" aria-errormessage="email-error" />
+            <p id="email-error" class="hint field-error" hidden>Enter an email address in the format name@example.com.</p>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="button button-primary">Continue application</button>
+            <button type="button" class="button" data-action="reset-scholarship">Reset workflow</button>
+            <button type="button" class="button button-quiet" data-action="toggle-accessible" aria-pressed="false">
+              Accessible comparison: off
+            </button>
+          </div>
+          <p id="comparison-note" class="fine-print">
+            Inaccessible version: errors and success are visual only, with no live region and no focus move.
+          </p>
+        </form>
+
+        <div id="reg-success" class="success-panel" hidden>
+          <h2>Registration accepted</h2>
+          <p>Thank you. Your application ID is <strong>NF-2026-0481</strong>. This is a demonstration, so nothing was sent.</p>
+          <button type="button" class="button" data-action="reset-scholarship">Start again</button>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="shopping-heading">
+        <p class="eyebrow">Shopping workflow</p>
+        <h2 id="shopping-heading">Basket updates and failures</h2>
+        <p class="hint">The confirmation is an aria-hidden visual toast. It is visible but inaccessible until ClearCue recovers it.</p>
+        <div class="product-row">
+          <button type="button" class="button" data-add-item="lantern">Add driftwood lantern</button>
+          <button type="button" class="button" data-add-item="blanket">Add wool blanket</button>
+          <button type="button" class="button" data-add-item="soldout">Add sold-out item</button>
+        </div>
+        <p class="hint">Basket: <span id="cart-count">0 items</span></p>
+        <div id="cart-toast" class="toast" aria-hidden="true" hidden></div>
+        <p class="fine-print">Clicking Add twice quickly must not produce two identical announcements.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="account-heading">
+        <p class="eyebrow">Account workflow</p>
+        <h2 id="account-heading">Ambiguous errors and a silent save</h2>
+        <p class="hint">
+          Save with both fields empty to see an error summary that refers to two fields. ClearCue refuses to choose one, so Jump stays disabled.
+        </p>
+        <form id="account-recovery-form" novalidate>
+          <div id="account-summary" class="error-summary" hidden>
+            <h3>There is a problem</h3>
+            <p>Check the highlighted fields.</p>
+          </div>
+          <div class="field-row">
+            <label for="account-email">Email address</label>
+            <input type="email" id="account-email" name="accountEmail" autocomplete="email" />
+          </div>
+          <div class="field-row">
+            <label for="account-phone">Phone number</label>
+            <input type="tel" id="account-phone" name="phone" autocomplete="tel" />
+          </div>
+          <div class="actions">
+            <button type="submit" class="button button-primary">Save changes</button>
+            <button type="button" class="button button-quiet" data-action="reset-account">Reset account demo</button>
+          </div>
+        </form>
+        <div id="account-saved" class="hint" aria-hidden="true" hidden>Changes saved.</div>
+        <p class="fine-print">
+          The delete-account control is intentionally absent from this lab. ClearCue must never activate a destructive action on your behalf.
+        </p>
+      </section>
+
+      <details class="notes">
+        <summary>Intentional Stage 5 defects in this lab</summary>
+        <ol>
+          <li>Silent inline validation and summary: no role=alert or aria-live, and focus stays on the submit button.</li>
+          <li>Visual-only success panel: no live region and focus is not moved.</li>
+          <li>aria-hidden shopping toast: visible confirmation that assistive technology cannot reach.</li>
+          <li>Ambiguous account summary: two fields could be responsible; the safe behaviour is no field association.</li>
+          <li>Accessible comparison adds real live regions and a focus move, so ClearCue must not duplicate its announcements.</li>
+        </ol>
+      </details>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap"><p>Northfield Foundation is fictional. Created for the ClearCue Accessibility Playground.</p></div>
+    </footer>
+
+    <script src="./recovery.js"></script>
+  </body>
+</html>

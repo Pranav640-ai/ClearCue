@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClearCue Stage 4 hybrid demonstration</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .demo-case {
+        border: 1px solid #cfc8b8;
+        border-radius: 10px;
+        padding: 14px 16px;
+        margin: 14px 0;
+        background: #fffdf7;
+      }
+      .demo-case h2 {
+        margin-top: 0;
+      }
+      .icon-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid #54705f;
+        background: #f3f7f2;
+        border-radius: 8px;
+        padding: 8px;
+        cursor: pointer;
+      }
+      .demo-note {
+        color: #45403a;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body data-page="stage4">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="playground-bar">
+      <span class="playground-tag">Demo site</span>
+      <p>Fictional controls for the Stage 4 hybrid repair demonstration. Defects are deliberate.</p>
+    </div>
+
+    <header class="site-header">
+      <div class="wrap site-header-inner">
+        <p class="wordmark">ClearCue <span>Playground</span></p>
+        <nav aria-label="Playground pages">
+          <ul class="nav-list">
+            <li><a href="./index.html">Overview</a></li>
+            <li><a href="./scholarship.html">Scholarship</a></li>
+            <li><a href="./shopping.html">Shopping</a></li>
+            <li><a href="./account.html">Account</a></li>
+            <li><a href="./recovery.html">Recovery lab</a></li>
+            <li><a href="./stage4.html" aria-current="page">Stage 4 demo</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <h1>Stage 4 hybrid demonstration</h1>
+      <p class="lede">
+        Enable ClearCue on <code>http://127.0.0.1:4318</code>, then work through these nine cases. Each card names the decision ClearCue should reach.
+        Real inference is only shown when a real model answers; nothing here is pre-recorded.
+      </p>
+
+      <section class="demo-case" id="case-1">
+        <h2>1. Deterministic repair without AI</h2>
+        <p class="demo-note">An authored icon description supports the name “Search”. Expect a rule repair and zero inference requests.</p>
+        <p><label for="case1-query">Search products</label> <input id="case1-query" type="search" /></p>
+        <button class="icon-button" type="button">
+          <svg width="18" height="18" aria-label="search" focusable="false"><title>search</title></svg>
+        </button>
+      </section>
+
+      <section class="demo-case" id="case-2">
+        <h2>2. Low-risk control named from visible context through on-device AI</h2>
+        <p class="demo-note">
+          The bell icon has no authored name, but the visible heading and helper text identify what it controls. A deterministic rule cannot invent
+          that name, so this case genuinely requires on-device reasoning. Expect an on-device proposal such as “Notification settings”, or an
+          abstention if the model cannot justify it. Both are valid outcomes; a fabricated source is not.
+        </p>
+        <h3>Notification settings</h3>
+        <p>Manage alerts for order updates and delivery changes.</p>
+        <button class="icon-button" type="button">
+          <svg width="18" height="18" aria-hidden="true" focusable="false">
+            <path d="M9 2a5 5 0 0 0-5 5v3l-1 2h12l-1-2V7a5 5 0 0 0-5-5zM7 14a2 2 0 0 0 4 0" fill="none" stroke="#14532d" />
+          </svg>
+        </button>
+      </section>
+
+      <section class="demo-case" id="case-3">
+        <h2>3. Local evidence insufficient, cloud escalation permitted</h2>
+        <p class="demo-note">Only structural evidence exists. With cloud enabled, expect a cloud escalation using structural evidence only.</p>
+        <h3>Quarterly revenue</h3>
+        <table>
+          <caption>
+            Fictional quarterly revenue
+          </caption>
+          <thead>
+            <tr><th scope="col">Quarter</th><th scope="col">Revenue</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Q1</td><td>12,000</td></tr>
+            <tr><td>Q2</td><td>14,500</td></tr>
+          </tbody>
+        </table>
+        <button class="icon-button" type="button">
+          <svg width="18" height="18" aria-hidden="true" focusable="false"><path d="M3 14l4-4 3 2 5-7" stroke="#14532d" fill="none" /></svg>
+        </button>
+      </section>
+
+      <section class="demo-case" id="case-4">
+        <h2>4. The same control with cloud turned off</h2>
+        <p class="demo-note">Turn cloud off in Privacy, reload, and repair this control. Expect an abstention with “Cloud escalation is turned off”.</p>
+        <button class="icon-button" type="button">
+          <svg width="18" height="18" aria-hidden="true" focusable="false"><path d="M2 9h14M9 2v14" stroke="#14532d" /></svg>
+        </button>
+      </section>
+
+      <section class="demo-case" id="case-5">
+        <h2>5. Private context after a local failure</h2>
+        <p class="demo-note">
+          The nearby case note is private. Even if local inference fails, no page text may leave the device. Expect an abstention and no cloud request.
+        </p>
+        <p class="demo-note">Private case note: reference 8842, do not share.</p>
+        <a href="./account.html"><svg width="18" height="18" aria-hidden="true" focusable="false"><path d="M3 3h12v12H3z" fill="none" stroke="#14532d" /></svg></a>
+      </section>
+
+      <section class="demo-case" id="case-6">
+        <h2>6. Destructive control stays unchanged</h2>
+        <p class="demo-note">Nearby text says “Delete permanently”. Expect an abstention with the unsafe-action reason and no page modification.</p>
+        <p>Delete permanently</p>
+        <button class="icon-button" type="button">
+          <svg width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 5h10M7 5V3h4v2M6 5l1 10h4l1-10" stroke="#8a1c1c" fill="none" /></svg>
+        </button>
+      </section>
+
+      <section class="demo-case" id="case-7">
+        <h2>7. Apply a repair, then undo it</h2>
+        <p class="demo-note">A settings icon with an authored hint. Apply, confirm the accessible name changed, then undo from Repair history.</p>
+        <button class="icon-button" type="button">
+          <svg width="18" height="18" aria-label="settings" focusable="false"><title>settings</title></svg>
+        </button>
+      </section>
+
+      <section class="demo-case" id="case-8">
+        <h2>8. Genuine offline local repair</h2>
+        <p class="demo-note">
+          Keep this page open and loaded, then switch DevTools Network to Offline. Repair the search control without reloading. On-device
+          inference must work without Firebase or App Check.
+        </p>
+        <h3>Find an order</h3>
+        <button class="icon-button" type="button">
+          <svg width="18" height="18" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5" fill="none" stroke="#14532d" /><path d="M12 12l4 4" stroke="#14532d" /></svg>
+        </button>
+      </section>
+
+      <section class="demo-case" id="case-9">
+        <h2>9. Stale inference result is rejected</h2>
+        <p class="demo-note">
+          Start a repair on the unnamed button, then immediately press “Replace this control”. The original element disappears, so any late proposal
+          must be rejected as stale and nothing may be applied.
+        </p>
+        <div id="stale-target-holder">
+          <button class="icon-button" id="stale-target" type="button">
+            <svg width="18" height="18" aria-label="download" focusable="false"><title>download</title></svg>
+          </button>
+        </div>
+        <button type="button" id="replace-target">Replace this control</button>
+        <p id="replace-status" role="status"></p>
+      </section>
+    </main>
+
+    <script>
+      document.getElementById("replace-target").addEventListener("click", () => {
+        const holder = document.getElementById("stale-target-holder");
+        holder.replaceChildren();
+        const replacement = document.createElement("button");
+        replacement.type = "button";
+        replacement.className = "icon-button";
+        replacement.innerHTML = '<svg width="18" height="18" aria-label="refresh" focusable="false"><title>refresh</title></svg>';
+        holder.append(replacement);
+        document.getElementById("replace-status").textContent = "The original control was replaced.";
+      });
+    </script>
+  </body>
+</html>

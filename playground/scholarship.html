@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scholarship application — ClearCue Playground</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="scholarship">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="playground-bar">
+      <span class="playground-tag">Demo site</span>
+      <p>Fictional content. The accessibility problems on this page are deliberate and documented at the bottom.</p>
+    </div>
+
+    <header class="site-header">
+      <div class="wrap site-header-inner">
+        <p class="wordmark">Northfield <span>Foundation</span></p>
+        <nav aria-label="Playground pages">
+          <ul class="nav-list">
+            <li><a href="./index.html">Overview</a></li>
+            <li><a href="./scholarship.html" aria-current="page">Scholarship</a></li>
+            <li><a href="./shopping.html">Shopping</a></li>
+            <li><a href="./account.html">Account</a></li>
+            <li><a href="./recovery.html">Recovery lab</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <div class="journey">
+        <div>
+          <p class="eyebrow">2026 access award</p>
+          <h1>Scholarship application</h1>
+          <p class="lede">Three short steps. You can review everything before you submit, and nothing is sent anywhere.</p>
+
+          <form id="application" novalidate>
+            <!-- DEFECT D-03: the error summary is not a live region and never receives focus. -->
+            <div id="form-error" class="error-summary" hidden>
+              <h2>There is a problem</h2>
+              <ul id="form-error-list"></ul>
+            </div>
+
+            <ol class="progress" aria-label="Application progress">
+              <li data-progress="1" aria-current="step">1. Your details</li>
+              <li data-progress="2">2. Personal statement</li>
+              <li data-progress="3">3. Review</li>
+            </ol>
+
+            <section class="panel" data-step="1" aria-labelledby="step1-heading">
+              <h2 id="step1-heading">Your details</h2>
+
+              <!-- DEFECT D-01: this input has no label and no accessible name; only a placeholder. -->
+              <div class="field-row">
+                <input type="text" id="full-name" name="fullName" placeholder="Full name" autocomplete="name" data-defect="D-01" />
+              </div>
+
+              <div class="field-row">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" autocomplete="email" />
+              </div>
+
+              <div class="field-row">
+                <label for="dob">Date of birth</label>
+                <input type="date" id="dob" name="dob" />
+              </div>
+
+              <p class="hint">
+                Not sure whether you qualify?
+                <!-- DEFECT D-02: link text is only "Click here". -->
+                <a href="#eligibility" data-defect="D-02">Click here</a>.
+              </p>
+
+              <div class="actions">
+                <button type="button" class="button button-primary" data-action="next">Continue to statement</button>
+              </div>
+            </section>
+
+            <section class="panel" data-step="2" aria-labelledby="step2-heading" hidden>
+              <h2 id="step2-heading">Personal statement</h2>
+
+              <div class="field-row">
+                <label for="statement">Why does this award matter to you? (maximum 400 words)</label>
+                <textarea id="statement" name="statement"></textarea>
+                <!-- DEFECT D-05: the word count updates silently, with no live region. -->
+                <div class="hint" id="word-count" data-defect="D-05">0 of 400 words</div>
+              </div>
+
+              <div class="field-row">
+                <label for="transcript">Supporting document (optional, PDF)</label>
+                <input type="file" id="transcript" name="transcript" accept="application/pdf" />
+              </div>
+
+              <div class="field-row" id="file-row" hidden>
+                <span class="label">Attached document</span>
+                <div class="product-row">
+                  <span id="file-name" class="hint">transcript.pdf</span>
+                  <!-- DEFECT D-04: icon-only remove button with no accessible name. -->
+                  <button type="button" class="icon-button" data-action="remove-file" data-defect="D-04">
+                    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                      <path d="M4 5h12M8 5V3h4v2M6 5l1 12h6l1-12" fill="none" stroke="#8c1d18" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button type="button" class="button" data-action="back">Back</button>
+                <button type="button" class="button button-primary" data-action="next">Review application</button>
+              </div>
+            </section>
+
+            <section class="panel" data-step="3" aria-labelledby="step3-heading" hidden>
+              <h2 id="step3-heading">Review your application</h2>
+              <dl class="receipt">
+                <dt>Name</dt>
+                <dd id="review-name">—</dd>
+                <dt>Email</dt>
+                <dd id="review-email">—</dd>
+                <dt>Date of birth</dt>
+                <dd id="review-dob">—</dd>
+                <dt>Statement</dt>
+                <dd id="review-statement">—</dd>
+              </dl>
+
+              <div class="actions">
+                <button type="button" class="button" data-action="back">Back</button>
+                <button type="button" class="button button-primary" data-action="submit">Submit application</button>
+              </div>
+            </section>
+          </form>
+
+          <div id="success" class="success-panel" hidden>
+            <h2>Application submitted</h2>
+            <p>Thank you. Your reference is <strong>NF-2026-0481</strong>. This is a demonstration, so nothing was actually sent.</p>
+            <dl class="receipt">
+              <dt>Name</dt>
+              <dd id="success-name">—</dd>
+              <dt>Email</dt>
+              <dd id="success-email">—</dd>
+            </dl>
+            <div class="actions">
+              <button type="button" class="button button-quiet" data-action="reset">Start another application</button>
+            </div>
+          </div>
+
+          <details class="notes">
+            <summary>Intentional accessibility defects on this page (6)</summary>
+            <ol>
+              <li><strong>D-01 Unlabeled field.</strong> The full-name input has a placeholder but no label, so it is announced only by its type.</li>
+              <li><strong>D-02 Vague link.</strong> An eligibility link is called “Click here”, which is useless out of context and in a link list.</li>
+              <li><strong>D-03 Silent validation.</strong> Submitting an incomplete first step shows a visual error summary that is not announced and is not focused.</li>
+              <li><strong>D-04 Unnamed icon button.</strong> The remove-attachment button contains only a trash icon with no accessible name.</li>
+              <li><strong>D-05 Unannounced update.</strong> The word counter changes on every keystroke without a live region.</li>
+              <li><strong>D-06 Lost context after submit.</strong> The form is replaced by a receipt while focus stays on the removed button, and nothing is announced.</li>
+            </ol>
+          </details>
+        </div>
+
+        <aside class="sidebar" aria-label="Application help">
+          <div class="aside-card" id="eligibility">
+            <h2>Eligibility</h2>
+            <ul>
+              <li>Studying full time in 2026.</li>
+              <li>Household income under £34,000.</li>
+              <li>One application per person.</li>
+            </ul>
+            <p class="fine-print">Read the full guidance before you apply. Decisions take up to six weeks.</p>
+          </div>
+
+          <div class="aside-card">
+            <h2>Need a hand?</h2>
+            <p>Call the access line on 0800 555 0142, or email access@northfield.example. Both are answered Monday to Friday.</p>
+          </div>
+
+          <div class="reset-card">
+            <h2>Testing</h2>
+            <p class="fine-print">Return the workflow to its first step and clear this session's entries.</p>
+            <button type="button" class="button" data-action="reset">Reset this page</button>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Northfield Foundation is fictional. Created for the ClearCue Accessibility Playground.</p>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

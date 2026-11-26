@@ -1,0 +1,12 @@
+# ClearBench v1 · frozen technical cohort
+
+The protocol was fixed before collecting results. The fixture represents a synthetic dispatch portal with multiple forms, both visual and programmatically exposed outcomes, and a small set of labelled and unlabelled controls. Expected names, associations and navigation outcomes live in the protocol. They are absent from application prompts and are never loaded by the extension. The fixture's normal labels and contextual headings are allowed evidence.
+
+Run `npm run build` and `npm run clearbench` against the pinned lockfile. The runner verifies fixture and protocol SHA-256 hashes and uses the built browser extension under external DNS isolation. It records all cases, counts and elapsed times. The browser automation uses a test-specific loopback host grant. The first 40 workflow checks form a technical smoke suite and are separate from this cohort's metrics.
+
+- Repair detection precision and recall are restricted to the five oracle controls. Correct-label precision divides correct writes by observed writes. Coverage divides correctly repaired controls by oracle barriers. Undo is tested on actual writes. An unchanged eligible control places no label in the denominator.
+- Recovery samples delayed feedback, same-text repeat submissions, a page-owned status and an unrelated mutation. The initial latency is from human-simulated click to observed event timestamp, with no claim about actual speech.
+- Navigator measures top-1 and candidate inclusion only for cases with a unique expected target. It measures explicit browser focus separately. Ties and no results have distinct expected behaviors. UI latency includes waiting for a result in the panel.
+- Aggregate command checks and benchmark quality are separate. A successful run writes all observations, even when some outcomes differ from the oracle.
+- Only deterministic strategies are measured in this cohort. Genuine cloud repair was independently exercised by Stage 4. Nano text, images and offline comparisons, and NVDA speech require regular-profile observations and are listed as unmeasured. Neither AI doubles nor development fixtures fill those cells.
+- This is a small technical evaluation. No usability study, population-level accuracy, actual GPU backend or generalized performance trend follows from it. Future changes must preserve this cohort and annotate any rerun after application changes.

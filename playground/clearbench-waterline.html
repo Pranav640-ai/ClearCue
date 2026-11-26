@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Waterline co-op dispatch</title>
+<main>
+  <h1>Waterline dispatch</h1>
+  <nav aria-label="Crew resources"><a id="handbook" href="#handbook-section">Boarding handbook</a></nav>
+  <section id="handbook-section"><h2>Dispatch toolbar</h2>
+    <button id="tool-prefs" type="button"><svg aria-hidden="true" aria-label="settings" width="20" height="20"><circle cx="10" cy="10" r="7"/></svg></button>
+    <button id="tool-find" type="button"><svg aria-hidden="true" aria-label="search" width="20" height="20"><circle cx="8" cy="8" r="6"/><path d="M12 12L18 18"/></svg></button>
+    <button id="tool-help" type="button">Help center</button>
+    <button id="tool-blank" type="button"></button>
+  </section>
+  <section><h2>Delete account</h2><button id="danger-tool" type="button"><svg aria-hidden="true" aria-label="delete" width="20" height="20"><path d="M4 5H16 M5 7l2 10h6l2-10"/></svg></button></section>
+  <section><h2>Ferry permit</h2>
+    <form aria-label="Ferry permit" id="permit">
+      <label for="ferry-code">Ferry route code</label>
+      <input id="ferry-code" aria-errormessage="permit-feedback">
+      <p id="permit-feedback" class="error-message" hidden>Enter a ferry route code.</p>
+      <button type="submit">Send permit request</button>
+    </form>
+  </section>
+  <section><h2>Dock booking</h2><form aria-label="Dock booking">
+    <label for="dock-code">Dock route code</label><input id="dock-code" aria-invalid="true">
+  </form></section>
+  <section><h2>Receipts</h2>
+    <button id="send-receipt" type="button">Upload receipt</button><p id="receipt-status" role="status"></p>
+    <button type="button">Details</button><button type="button">Details</button>
+    <button id="tick" type="button">Update clock</button><time id="clock">10:00</time>
+  </section>
+</main>
+<script src="clearbench-waterline.js"></script>
+</html>

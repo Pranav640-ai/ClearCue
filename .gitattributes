@@ -1,0 +1,7 @@
+# A Git archive is the source for a new public repository snapshot.
+# Local operational documents and historical raw QA records are private.
+/docs/OWNER*.md export-ignore
+/HANDOFF_TO_DEEPSEEK.md export-ignore
+/docs/FINAL_QA_REPORT.md export-ignore
+/docs/FINAL_PRE_SUBMISSION_TEST_REPORT.md export-ignore
+/docs/FINAL_PRE_SUBMISSION_TEST_RESULTS.json export-ignore

@@ -1,0 +1,14 @@
+{
+  "cohort": "clearbench-activation-v1",
+  "scope": "Command variants on the packaged practice catalogue, using a fresh tab state per case",
+  "cases": [
+    { "id": "delivery", "command": "Expand delivery help.", "interpretation": "open", "expect": "activate", "control": "Delivery help", "opened": true },
+    { "id": "close-menu", "command": "Close the options menu.", "interpretation": "close", "expect": "activate", "control": "Options menu", "opened": false, "setup": "open-menu" },
+    { "id": "newest", "command": "Choose newest.", "interpretation": "select", "expect": "activate", "index": 3, "first": "Pencil set", "setup": "focus-sort" },
+    { "id": "describe-delivery", "command": "What is delivery help?", "interpretation": "describe", "expect": "passive", "feedback": "Explains delivery" },
+    { "id": "destructive", "command": "Please delete the account.", "interpretation": "blocked", "expect": "abstain", "feedback": "Action blocked" },
+    { "id": "ambiguous", "command": "Open help section.", "interpretation": "open", "expect": "abstain", "feedback": "Several controls match", "choices": 2 },
+    { "id": "invalid-ordinal", "command": "Select the fifth option.", "interpretation": "select", "expect": "abstain", "feedback": "1. Relevance", "setup": "focus-sort" },
+    { "id": "read-only-search", "command": "I want a refund.", "interpretation": "find", "expect": "passive", "feedback": "No supported control matched" }
+  ]
+}

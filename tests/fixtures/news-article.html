@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Northwind Daily — Accessibility in practice</title>
+    <style>
+      body { font-family: Georgia, serif; max-width: 60rem; margin: 0 auto; padding: 1.5rem; color: #1c2420; }
+      header, nav, main, footer { margin-bottom: 1.5rem; }
+      .icon-button { border: 1px solid #ccc; background: #fff; padding: 0.4rem; border-radius: 6px; }
+      .card { border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; }
+      .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    </style>
+  </head>
+  <body>
+    <a class="visually-hidden" href="#main">Skip to main content</a>
+    <header>
+      <a href="/"><img src="/logo.png" alt="Northwind Daily home" width="120" height="32" /></a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="/world">World</a></li>
+          <li><a href="/technology">Technology</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+        </ul>
+      </nav>
+      <form role="search" action="/search">
+        <!-- Deliberate defect: icon-only search trigger with no accessible name. -->
+        <button class="icon-button" type="submit">
+          <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" /></svg>
+        </button>
+        <input type="search" name="q" aria-label="Search articles" />
+      </form>
+      <button class="icon-button" type="button" aria-label="Open menu">☰</button>
+    </header>
+
+    <main id="main">
+      <h1>Accessibility in practice: what teams get wrong</h1>
+      <p>Published 12 March. Reading time 6 minutes.</p>
+      <button type="button">Subscribe to the newsletter</button>
+      <button class="icon-button" type="button">
+        <svg viewBox="0 0 20 20" width="20" height="20" role="img"><title>Share</title></svg>
+      </button>
+
+      <section aria-labelledby="more-stories">
+        <h2 id="more-stories">More stories</h2>
+        <article class="card">
+          <h3>Why labels matter</h3>
+          <p>Placeholder text disappears as soon as typing starts.</p>
+          <!-- Deliberate defect: vague link with a contextual heading above it. -->
+          <a href="/stories/labels-matter">Read more</a>
+        </article>
+        <article class="card">
+          <h3>Focus order in menus</h3>
+          <p>Keyboard users lose their place when focus is moved unexpectedly.</p>
+          <a href="/stories/focus-order">Read more</a>
+        </article>
+        <article class="card">
+          <h3>Testing with a screen reader</h3>
+          <p>Automated checks catch a fraction of real problems.</p>
+          <a href="/stories/screen-reader-testing">Read more</a>
+        </article>
+        <!-- Deliberate defect: link with an icon and no accessible name. -->
+        <a href="/archive"><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"></svg></a>
+      </section>
+    </main>
+
+    <footer>
+      <a href="/about">About</a>
+      <a href="/privacy">Privacy</a>
+    </footer>
+  </body>
+</html>

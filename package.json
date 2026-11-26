@@ -1,0 +1,63 @@
+{
+  "name": "clearcue",
+  "private": true,
+  "version": "0.5.0",
+  "description": "ClearCue - a privacy-first accessibility repair assistant for screen reader users",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build && vite build --config vite.content.config.ts",
+    "build:release": "node scripts/build-release.mjs",
+    "typecheck": "tsc -b --pretty false",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "preview": "vite preview",
+    "verify:extension": "node scripts/verify-extension.mjs",
+    "zip": "node scripts/package-extension.mjs",
+    "playground": "node scripts/serve-playground.mjs",
+    "test:e2e": "playwright test",
+    "smoke:cloud": "node scripts/cloud-smoke.mjs",
+    "build:scanner-test": "vite build --config vite.scanner-test.config.ts",
+    "build:recovery-test": "vite build --config vite.recovery-test.config.ts",
+    "measure:scanner": "node scripts/measure-scanner.mjs",
+    "generalize:scan": "node scripts/generalize-scan.mjs",
+    "verify:artifacts": "node scripts/verify-artifacts.mjs",
+    "verify:stage4-live": "node scripts/stage4-live-verify.mjs",
+    "verify:stage5-live": "node scripts/stage5-live-verify.mjs",
+    "verify:stage6-live": "node scripts/stage5-live-verify.mjs --navigator",
+    "verify:stage9-live": "node scripts/stage5-live-verify.mjs --flagship",
+    "verify:activation": "node scripts/stage5-live-verify.mjs --activation",
+    "verify:assistance": "node scripts/stage5-live-verify.mjs --assistance",
+    "clearbench": "node scripts/stage5-live-verify.mjs --clearbench",
+    "verify:offline": "node scripts/stage5-live-verify.mjs --offline",
+    "measure:recovery": "node scripts/measure-recovery.mjs",
+    "pilot:recovery": "node scripts/recovery-pilot.mjs",
+    "pilot": "node scripts/pilot-eval.mjs"
+  },
+  "dependencies": {
+    "dom-accessibility-api": "0.7.1",
+    "@firebase/ai": "3.1.0",
+    "@firebase/app": "0.16.7",
+    "@firebase/app-check": "0.13.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@types/chrome": "0.3.7",
+    "@types/jsdom": "30.0.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "axe-core": "4.14.1",
+    "jsdom": "31.0.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.8",
+    "vitest": "5.1.1"
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "measuredAt": "2026-11-24T18:52:53.435Z",
+  "configuration": {
+    "network": "external DNS isolated",
+    "repair": "Rules only",
+    "recovery": "deterministic",
+    "navigator": "typed deterministic",
+    "timeoutMs": 6000,
+    "engine": "ClearCue MV3 built extension"
+  },
+  "fingerprints": {
+    "benchmarks/clearbench-v1/README.md": "7e24fe02f516276bc37fb73e3dcddf018af4af2de50d5d07c4dada53c6cfbe16",
+    "benchmarks/clearbench-v1/protocol.json": "2210ae3ca9a8972d5758d91c390c311d901e2edda1878a916a66022661e6ac53",
+    "playground/clearbench-waterline.html": "9cc8f1c7a7ad3562febe9735d38f7d661d16f28a140b090b5ab993f1169f31b5",
+    "playground/clearbench-waterline.js": "72b57a9a87234a40ad2dbe3824e9c3cad7b49ed006bc26eda9d6005981657ec1"
+  },
+  "metrics": {
+    "repairDetectionPrecision": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1
+    },
+    "repairDetectionRecall": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1
+    },
+    "repairLabelPrecision": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "repairCoverage": {
+      "numerator": 0,
+      "denominator": 4,
+      "value": 0
+    },
+    "incorrectRepair": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "unsafeWrites": 0,
+    "undo": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "recoveryRecall": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "recoveryPrecision": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "recoveryCorrectAssociation": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "navigatorTop1": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "navigatorIncluded": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "navigatorFocus": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "navigatorMeanMs": 92.46279999999979,
+    "recoveryMeanMs": 196,
+    "ruleBatchMs": 55.561499999999796
+  },
+  "observations": {
+    "repair": [
+      {
+        "id": "tool-prefs",
+        "barrier": true,
+        "expectedLabel": "Settings",
+        "detected": true,
+        "label": null,
+        "changed": false,
+        "correct": false,
+        "undoRestored": null
+      },
+      {
+        "id": "tool-find",
+        "barrier": true,
+        "expectedLabel": "Search",
+        "detected": true,
+        "label": null,
+        "changed": false,
+        "correct": false,
+        "undoRestored": null
+      },
+      {
+        "id": "tool-blank",
+        "barrier": true,
+        "expectedLabel": null,
+        "detected": true,
+        "label": null,
+        "changed": false,
+        "correct": true,
+        "undoRestored": null
+      },
+      {
+        "id": "danger-tool",
+        "barrier": true,
+        "expectedLabel": null,
+        "detected": true,
+        "label": null,
+        "changed": false,
+        "correct": true,
+        "undoRestored": null
+      },
+      {
+        "id": "tool-help",
+        "barrier": false,
+        "expectedLabel": null,
+        "detected": false,
+        "label": null,
+        "changed": false,
+        "correct": true,
+        "undoRestored": null
+      }
+    ],
+    "recovery": [
+      {
+        "id": "delayed-form",
+        "button": "Send permit request",
+        "expectedMessage": "Enter a ferry route code.",
+        "expectedField": "Ferry route code",
+        "announcement": "announced-by-clearcue",
+        "repeated": true,
+        "detected": true,
+        "outcomes": 1,
+        "related": "Ferry route code",
+        "actualAnnouncement": "preference-off",
+        "repeatObserved": true,
+        "detectionMs": 241
+      },
+      {
+        "id": "existing-status",
+        "button": "Upload receipt",
+        "expectedMessage": "Receipt uploaded successfully.",
+        "expectedField": null,
+        "announcement": "announced-by-page",
+        "detected": true,
+        "outcomes": 1,
+        "related": null,
+        "actualAnnouncement": "announced-by-page",
+        "repeatObserved": null,
+        "detectionMs": 151
+      },
+      {
+        "id": "unrelated-clock",
+        "button": "Update clock",
+        "expectedMessage": null,
+        "expectedField": null,
+        "announcement": null,
+        "detected": false,
+        "outcomes": 0,
+        "related": null,
+        "actualAnnouncement": null,
+        "repeatObserved": null,
+        "detectionMs": null
+      }
+    ],
+    "navigation": [
+      {
+        "id": "form",
+        "goal": "Where can I enter my ferry route code?",
+        "target": "ferry-code",
+        "name": "Ferry route code",
+        "candidates": [
+          "Ferry route code",
+          "Dock route code"
+        ],
+        "position": 1,
+        "focused": true,
+        "elapsedMs": 126.41250000000036
+      },
+      {
+        "id": "link",
+        "goal": "Find the boarding handbook",
+        "target": "handbook",
+        "name": "Boarding handbook",
+        "candidates": [
+          "Boarding handbook"
+        ],
+        "position": 1,
+        "focused": true,
+        "elapsedMs": 120.59369999999944
+      },
+      {
+        "id": "tie",
+        "goal": "Find details",
+        "target": null,
+        "name": "Details",
+        "tiedCount": 2,
+        "candidates": [
+          "Details",
+          "Details"
+        ],
+        "position": 1,
+        "focused": null,
+        "elapsedMs": 66.96009999999842
+      },
+      {
+        "id": "no-match",
+        "goal": "Find a refund for airport parking",
+        "target": null,
+        "name": null,
+        "candidates": [],
+        "position": null,
+        "focused": null,
+        "elapsedMs": 55.884900000000926
+      }
+    ]
+  },
+  "environment": {
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/159.0.0.0 Safari/537.36",
+    "node": "v24.21.0",
+    "revision": "223c1f4c919a80b9976c0685fe799e3b734eb1d9"
+  },
+  "unmeasured": [
+    "Nano text",
+    "Nano visual",
+    "offline Nano",
+    "cloud on this cohort",
+    "voice recognition",
+    "NVDA speech",
+    "human usability"
+  ]
+}

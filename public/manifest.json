@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "ClearCue \u2014 Accessible page repair",
+  "short_name": "ClearCue",
+  "version": "0.5.0",
+  "description": "Offline-first accessibility assistance with typed navigation, interaction recovery and reversible page repairs.",
+  "minimum_chrome_version": "139",
+  "action": {
+    "default_title": "Open ClearCue"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "diagnostics.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "activeTab",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "commands": {
+    "open-panel": {
+      "suggested_key": {
+        "default": "Alt+Shift+C"
+      },
+      "description": "Open the ClearCue side panel"
+    },
+    "open-diagnostics": {
+      "suggested_key": {
+        "default": "Alt+Shift+D"
+      },
+      "description": "Open the Firebase inference diagnostics page"
+    },
+    "explain-focus": {
+      "suggested_key": {
+        "default": "Alt+Shift+L"
+      },
+      "description": "Explain the focused webpage control"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

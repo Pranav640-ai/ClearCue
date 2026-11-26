@@ -1,0 +1,263 @@
+{
+  "measuredAt": "2026-11-24T18:54:17.052Z",
+  "configuration": {
+    "network": "external DNS isolated",
+    "repair": "Rules only",
+    "recovery": "deterministic",
+    "navigator": "typed deterministic",
+    "timeoutMs": 6000,
+    "engine": "ClearCue MV3 built extension",
+    "announceRecoveryMessages": true
+  },
+  "fingerprints": {
+    "benchmarks/clearbench-v1/README.md": "7e24fe02f516276bc37fb73e3dcddf018af4af2de50d5d07c4dada53c6cfbe16",
+    "benchmarks/clearbench-v1/protocol.json": "2210ae3ca9a8972d5758d91c390c311d901e2edda1878a916a66022661e6ac53",
+    "playground/clearbench-waterline.html": "9cc8f1c7a7ad3562febe9735d38f7d661d16f28a140b090b5ab993f1169f31b5",
+    "playground/clearbench-waterline.js": "72b57a9a87234a40ad2dbe3824e9c3cad7b49ed006bc26eda9d6005981657ec1"
+  },
+  "metrics": {
+    "repairDetectionPrecision": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1
+    },
+    "repairDetectionRecall": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1
+    },
+    "repairLabelPrecision": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "repairCoverage": {
+      "numerator": 2,
+      "denominator": 4,
+      "value": 0.5
+    },
+    "incorrectRepair": {
+      "numerator": 0,
+      "denominator": 2,
+      "value": 0
+    },
+    "unsafeWrites": 0,
+    "undo": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "recoveryRecall": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "recoveryPrecision": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "recoveryCorrectAssociation": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "navigatorTop1": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "navigatorIncluded": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "navigatorFocus": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1
+    },
+    "navigatorMeanMs": 80.48890000000029,
+    "recoveryMeanMs": 189,
+    "ruleBatchMs": 306.53869999999915
+  },
+  "observations": {
+    "repair": [
+      {
+        "id": "tool-prefs",
+        "barrier": true,
+        "expectedLabel": "Settings",
+        "detected": true,
+        "label": "Settings",
+        "changed": true,
+        "correct": true,
+        "undoRestored": true
+      },
+      {
+        "id": "tool-find",
+        "barrier": true,
+        "expectedLabel": "Search",
+        "detected": true,
+        "label": "Search",
+        "changed": true,
+        "correct": true,
+        "undoRestored": true
+      },
+      {
+        "id": "tool-blank",
+        "barrier": true,
+        "expectedLabel": null,
+        "detected": true,
+        "label": null,
+        "changed": false,
+        "correct": true,
+        "undoRestored": null
+      },
+      {
+        "id": "danger-tool",
+        "barrier": true,
+        "expectedLabel": null,
+        "detected": true,
+        "label": null,
+        "changed": false,
+        "correct": true,
+        "undoRestored": null
+      },
+      {
+        "id": "tool-help",
+        "barrier": false,
+        "expectedLabel": null,
+        "detected": false,
+        "label": null,
+        "changed": false,
+        "correct": true,
+        "undoRestored": null
+      }
+    ],
+    "recovery": [
+      {
+        "id": "delayed-form",
+        "button": "Send permit request",
+        "expectedMessage": "Enter a ferry route code.",
+        "expectedField": "Ferry route code",
+        "announcement": "announced-by-clearcue",
+        "repeated": true,
+        "detected": true,
+        "outcomes": 1,
+        "related": "Ferry route code",
+        "actualAnnouncement": "announced-by-clearcue",
+        "repeatObserved": true,
+        "detectionMs": 268
+      },
+      {
+        "id": "existing-status",
+        "button": "Upload receipt",
+        "expectedMessage": "Receipt uploaded successfully.",
+        "expectedField": null,
+        "announcement": "announced-by-page",
+        "detected": true,
+        "outcomes": 1,
+        "related": null,
+        "actualAnnouncement": "announced-by-page",
+        "repeatObserved": null,
+        "detectionMs": 110
+      },
+      {
+        "id": "unrelated-clock",
+        "button": "Update clock",
+        "expectedMessage": null,
+        "expectedField": null,
+        "announcement": null,
+        "detected": false,
+        "outcomes": 0,
+        "related": null,
+        "actualAnnouncement": null,
+        "repeatObserved": null,
+        "detectionMs": null
+      }
+    ],
+    "navigation": [
+      {
+        "id": "form",
+        "goal": "Where can I enter my ferry route code?",
+        "target": "ferry-code",
+        "name": "Ferry route code",
+        "candidates": [
+          "Ferry route code",
+          "Dock route code"
+        ],
+        "position": 1,
+        "focused": true,
+        "elapsedMs": 104.96209999999883
+      },
+      {
+        "id": "link",
+        "goal": "Find the boarding handbook",
+        "target": "handbook",
+        "name": "Boarding handbook",
+        "candidates": [
+          "Boarding handbook"
+        ],
+        "position": 1,
+        "focused": true,
+        "elapsedMs": 101.4890000000014
+      },
+      {
+        "id": "tie",
+        "goal": "Find details",
+        "target": null,
+        "name": "Details",
+        "tiedCount": 2,
+        "candidates": [
+          "Details",
+          "Details"
+        ],
+        "position": 1,
+        "focused": null,
+        "elapsedMs": 54.62089999999989
+      },
+      {
+        "id": "no-match",
+        "goal": "Find a refund for airport parking",
+        "target": null,
+        "name": null,
+        "candidates": [],
+        "position": null,
+        "focused": null,
+        "elapsedMs": 60.883600000001024
+      }
+    ]
+  },
+  "ruleAttempts": [
+    {
+      "issueId": "icon-control-name:html:nth-child(1)>body:nth-child(2)>main:nth-child(1)>section:nth-child(3)>button:nth-child(3)",
+      "action": "apply",
+      "source": "rule",
+      "routing": [
+        "deterministic-supported"
+      ]
+    },
+    {
+      "issueId": "icon-control-name:html:nth-child(1)>body:nth-child(2)>main:nth-child(1)>section:nth-child(3)>button:nth-child(2)",
+      "action": "apply",
+      "source": "rule",
+      "routing": [
+        "deterministic-supported"
+      ]
+    }
+  ],
+  "environment": {
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/159.0.0.0 Safari/537.36",
+    "node": "v24.21.0",
+    "revision": "223c1f4c919a80b9976c0685fe799e3b734eb1d9"
+  },
+  "unmeasured": [
+    "Nano text",
+    "Nano visual",
+    "offline Nano",
+    "cloud on this cohort",
+    "voice recognition",
+    "NVDA speech",
+    "human usability"
+  ]
+}

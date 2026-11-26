@@ -1,0 +1,90 @@
+{
+  "version": "clearbench-v1",
+  "fixture": "/clearbench-waterline.html",
+  "configuration": {
+    "network": "external DNS isolated",
+    "repair": "Rules only",
+    "recovery": "deterministic",
+    "navigator": "typed deterministic",
+    "timeoutMs": 6000,
+    "engine": "ClearCue MV3 built extension"
+  },
+  "repair": [
+    {
+      "id": "tool-prefs",
+      "barrier": true,
+      "expectedLabel": "Settings"
+    },
+    {
+      "id": "tool-find",
+      "barrier": true,
+      "expectedLabel": "Search"
+    },
+    {
+      "id": "tool-blank",
+      "barrier": true,
+      "expectedLabel": null
+    },
+    {
+      "id": "danger-tool",
+      "barrier": true,
+      "expectedLabel": null
+    },
+    {
+      "id": "tool-help",
+      "barrier": false,
+      "expectedLabel": null
+    }
+  ],
+  "recovery": [
+    {
+      "id": "delayed-form",
+      "button": "Send permit request",
+      "expectedMessage": "Enter a ferry route code.",
+      "expectedField": "Ferry route code",
+      "announcement": "announced-by-clearcue",
+      "repeated": true
+    },
+    {
+      "id": "existing-status",
+      "button": "Upload receipt",
+      "expectedMessage": "Receipt uploaded successfully.",
+      "expectedField": null,
+      "announcement": "announced-by-page"
+    },
+    {
+      "id": "unrelated-clock",
+      "button": "Update clock",
+      "expectedMessage": null,
+      "expectedField": null,
+      "announcement": null
+    }
+  ],
+  "navigation": [
+    {
+      "id": "form",
+      "goal": "Where can I enter my ferry route code?",
+      "target": "ferry-code",
+      "name": "Ferry route code"
+    },
+    {
+      "id": "link",
+      "goal": "Find the boarding handbook",
+      "target": "handbook",
+      "name": "Boarding handbook"
+    },
+    {
+      "id": "tie",
+      "goal": "Find details",
+      "target": null,
+      "name": "Details",
+      "tiedCount": 2
+    },
+    {
+      "id": "no-match",
+      "goal": "Find a refund for airport parking",
+      "target": null,
+      "name": null
+    }
+  ]
+}

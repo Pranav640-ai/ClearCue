@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Harbor services member portal</title>
+<main>
+  <h1>Harbor services member portal</h1>
+  <nav aria-label="Account"><a href="#orders">My orders</a></nav>
+  <section><h2>Membership application</h2>
+    <form aria-label="Membership application form">
+      <label for="member">Registration number</label>
+      <input id="member" name="registration" value="HBR-902" required>
+      <label for="contact-email">Contact email</label>
+      <input id="contact-email" type="email" required>
+      <button type="button">Check application status</button>
+    </form>
+  </section>
+  <section id="orders"><h2>Orders and receipts</h2>
+    <label for="order-sort">Display order</label>
+    <select id="order-sort"><option>Newest first</option><option>Oldest first</option></select>
+    <a href="#receipt" download>Download receipt</a>
+    <button type="button">Details</button>
+    <button type="button">Details</button>
+    <button type="button" disabled>Restricted refund</button>
+  </section>
+  <script>
+    window.activationCounts = { click: 0, submit: 0, input: 0 };
+    for (const type of Object.keys(window.activationCounts)) {
+      document.addEventListener(type, () => window.activationCounts[type]++);
+    }
+  </script>
+</main>
+</html>

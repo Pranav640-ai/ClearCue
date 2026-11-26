@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClearCue Accessibility Playground</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="hub">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="playground-bar">
+      <span class="playground-tag">Demo site</span>
+      <p>Fictional content for testing ClearCue. Accessibility problems on these pages are deliberate and documented.</p>
+    </div>
+
+    <header class="site-header">
+      <div class="wrap site-header-inner">
+        <p class="wordmark">ClearCue <span>Playground</span></p>
+        <nav aria-label="Playground pages">
+          <ul class="nav-list">
+            <li><a href="./index.html" aria-current="page">Overview</a></li>
+            <li><a href="./scholarship.html">Scholarship</a></li>
+            <li><a href="./shopping.html">Shopping</a></li>
+            <li><a href="./account.html">Account</a></li>
+            <li><a href="./recovery.html">Recovery lab</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <section class="hero">
+        <p class="eyebrow">Three realistic journeys</p>
+        <h1>Real tasks, with problems worth fixing.</h1>
+        <p class="lede">
+          Each workflow uses fictional data and complete interactions. The accessibility defects are intentional, listed on each page, and chosen to
+          match the problems ClearCue is being built to repair.
+        </p>
+      </section>
+
+      <section aria-labelledby="workflows-heading">
+        <h2 id="workflows-heading" class="section-heading">Choose a workflow</h2>
+        <ul class="card-grid">
+          <li class="workflow-card">
+            <p class="workflow-kicker">Flagship journey</p>
+            <h3><a href="./scholarship.html">Scholarship application</a></h3>
+            <p>A three-step application with validation, an upload and a final submission.</p>
+            <p class="workflow-meta">6 intentional defects</p>
+          </li>
+          <li class="workflow-card">
+            <p class="workflow-kicker">Commerce</p>
+            <h3><a href="./shopping.html">Online shopping</a></h3>
+            <p>Browse outdoor goods, change quantities and watch the basket total update.</p>
+            <p class="workflow-meta">3 intentional defects</p>
+          </li>
+          <li class="workflow-card">
+            <p class="workflow-kicker">Settings</p>
+            <h3><a href="./account.html">Account settings</a></h3>
+            <p>Notification switches, security options and a destructive action placed too close to Save.</p>
+            <p class="workflow-meta">3 intentional defects</p>
+          </li>
+        </ul>
+        <p class="fine-print">
+          For the Stage 4 hybrid engine, open the
+          <a href="./stage4.html">nine-case repair demonstration</a>.
+        </p>
+      </section>
+
+      <section class="about-panel" aria-labelledby="about-heading">
+        <h2 id="about-heading" class="section-heading">How to use this playground</h2>
+        <ol class="steps">
+          <li>Enable ClearCue on this site from the side panel.</li>
+          <li>Walk a workflow with your screen reader and note where you lose context.</li>
+          <li>Compare what you experienced with the documented defect list at the bottom of each page.</li>
+          <li>Use <strong>Reset this page</strong> to return the workflow to its starting state.</li>
+        </ol>
+        <p class="fine-print">All names, amounts and documents are invented. Nothing here is a real service or a real application.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>ClearCue Accessibility Playground · fictional demo content · built for the Firebase #BuildHybridAI 2026 hackathon.</p>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

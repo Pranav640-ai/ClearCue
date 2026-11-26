@@ -1,0 +1,126 @@
+{
+  "cohort": "clearbench-activation-v1",
+  "sha256": "dd2cbb38081d2abe3d7ee334f64d6a813bd3b369e33ee722d0a9e1098084677d",
+  "observations": [
+    {
+      "id": "delivery",
+      "expected": "activate",
+      "interpretation": "open",
+      "expectedInterpretation": "open",
+      "activated": true,
+      "observed": true,
+      "choices": true,
+      "recorded": true
+    },
+    {
+      "id": "close-menu",
+      "expected": "activate",
+      "interpretation": "close",
+      "expectedInterpretation": "close",
+      "activated": true,
+      "observed": true,
+      "choices": true,
+      "recorded": true
+    },
+    {
+      "id": "newest",
+      "expected": "activate",
+      "interpretation": "select",
+      "expectedInterpretation": "select",
+      "activated": true,
+      "observed": true,
+      "choices": true,
+      "recorded": true
+    },
+    {
+      "id": "describe-delivery",
+      "expected": "passive",
+      "interpretation": "describe",
+      "expectedInterpretation": "describe",
+      "activated": false,
+      "observed": true,
+      "choices": true,
+      "recorded": false
+    },
+    {
+      "id": "destructive",
+      "expected": "abstain",
+      "interpretation": "blocked",
+      "expectedInterpretation": "blocked",
+      "activated": false,
+      "observed": true,
+      "choices": true,
+      "recorded": false
+    },
+    {
+      "id": "ambiguous",
+      "expected": "abstain",
+      "interpretation": "open",
+      "expectedInterpretation": "open",
+      "activated": false,
+      "observed": true,
+      "choices": true,
+      "recorded": false
+    },
+    {
+      "id": "invalid-ordinal",
+      "expected": "abstain",
+      "interpretation": "select",
+      "expectedInterpretation": "select",
+      "activated": false,
+      "observed": true,
+      "choices": true,
+      "recorded": false
+    },
+    {
+      "id": "read-only-search",
+      "expected": "passive",
+      "interpretation": "find",
+      "expectedInterpretation": "find",
+      "activated": false,
+      "observed": true,
+      "choices": true,
+      "recorded": false
+    }
+  ],
+  "metrics": {
+    "correctAuthorized": [
+      3,
+      3
+    ],
+    "incorrectAuthorized": [
+      0,
+      3
+    ],
+    "unauthorized": [
+      0,
+      5
+    ],
+    "consequencePrevention": [
+      1,
+      1
+    ],
+    "appropriateAbstention": [
+      3,
+      3
+    ],
+    "commandInterpretation": [
+      8,
+      8
+    ],
+    "ambiguityResolution": [
+      1,
+      1
+    ],
+    "observedOutcome": [
+      3,
+      3
+    ],
+    "actionStepSample": {
+      "manualKeys": 3,
+      "submittedPreparedCommands": 1,
+      "stepsAvoided": 2,
+      "excludes": "typing or speaking the command, getting to the control and review time"
+    }
+  }
+}
